@@ -2061,6 +2061,37 @@ internal sealed class SuperIOHardware : Hardware
 
                         break;
 
+
+                    case Model.Z170_CLASSIFIED_4WAY: // F71889AD
+                        v.Add(new Voltage("VCC3V", 0, 150, 150));
+                        v.Add(new Voltage("VIN1", 1, 47, 100));
+                        v.Add(new Voltage("VIN2", 2, 47, 100));
+                        v.Add(new Voltage("VIN3", 3, 24, 100));
+                        v.Add(new Voltage("+5V", 4, 51, 12));
+                        v.Add(new Voltage("+12V", 5, 56, 6.8f));
+                        v.Add(new Voltage("VIN6", 6, 24, 100));
+                        v.Add(new Voltage("3VSB", 7, 150, 150));
+                        v.Add(new Voltage("VIN8", 8, 150, 150));
+                        t.Add(new Temperature("CPU", 0));
+                        t.Add(new Temperature("PWM", 1));
+                        t.Add(new Temperature("System", 2));
+                        f.Add(new Fan("CPU Fan", 0));
+                        f.Add(new Fan("CPU2 Fan", 1));
+                        f.Add(new Fan("Chassis Fan", 2));
+                        f.Add(new Fan("Power Fan", 3));
+                        f.Add(new Fan("Aux Fan", 4));
+                        f.Add(new Fan("Sys1 Fan", 5));
+                        f.Add(new Fan("Sys2 Fan", 6));
+                        c.Add(new Control("CPU Fan", 0));
+                        c.Add(new Control("CPU2 Fan", 1));
+                        c.Add(new Control("Chassis Fan", 2));
+                        c.Add(new Control("Power Fan", 3));
+                        c.Add(new Control("Aux Fan", 4));
+                        c.Add(new Control("Sys1 Fan", 5));
+                        c.Add(new Control("Sys2 Fan", 6));
+
+                        break;
+
                     default:
                         v.Add(new Voltage("VCC3V", 0, 150, 150));
                         v.Add(new Voltage("Vcore", 1));
@@ -2839,29 +2870,29 @@ internal sealed class SuperIOHardware : Hardware
                         v.Add(new Voltage("PCH Core", 12));
                         v.Add(new Voltage("CPU PLLs", 13));
                         v.Add(new Voltage("CPU VCCSA", 14));
-                        
+
                         t.Add(new Temperature("Motherboard", 0));
                         t.Add(new Temperature("CPU", 1));
                         t.Add(new Temperature("Motherboard", 2));
                         t.Add(new Temperature("CPU (Weighted)", 6));
                         t.Add(new Temperature("CPU (PECI)", 7));
                         t.Add(new Temperature("CPU", 8));
-                        
+
                         fanControlNames = new[] { "Chassis Fan 1", "CPU Fan", "Chassis Fan 2", "Chassis Fan 3", "High Amp Fan", "Water Pump+", "AIO Pump" };
                         System.Diagnostics.Debug.Assert(fanControlNames.Length == superIO.Fans.Length,
                                                         $"Expected {fanControlNames.Length} fan register in the SuperIO chip");
 
                         System.Diagnostics.Debug.Assert(superIO.Fans.Length == superIO.Controls.Length,
                                                         "Expected counts of cans controls and fan speed registers to be equal");
-                        
+
                         for (int i = 0; i < fanControlNames.Length; i++)
                             f.Add(new Fan(fanControlNames[i], i));
 
                         for (int i = 0; i < fanControlNames.Length; i++)
                             c.Add(new Control(fanControlNames[i], i));
-                        
+
                         break;
-                    
+
                     case Model.ROG_MAXIMUS_X_HERO_WIFI_AC: //NCT6793D
                         v.Add(new Voltage("Vcore", 0, 2, 2));
                         v.Add(new Voltage("+5V", 1, 4, 1));
@@ -3495,7 +3526,7 @@ internal sealed class SuperIOHardware : Hardware
                         v.Add(new Voltage("+5V", 1, 4, 1));
                         v.Add(new Voltage("AVCC", 2, 34, 34));
                         v.Add(new Voltage("+3.3V", 3, 34, 34));
-                        v.Add(new Voltage("+12V", 4,  11, 1));
+                        v.Add(new Voltage("+12V", 4, 11, 1));
                         //v.Add(new Voltage("Voltage #6", 5));
                         v.Add(new Voltage("VIN4", 6, false));
                         v.Add(new Voltage("3VSB", 7, 34, 34));

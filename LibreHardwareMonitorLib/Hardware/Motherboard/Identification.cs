@@ -208,6 +208,8 @@ internal class Identification
                 return Model.X58_SLI_Classified;
             case var _ when name.Equals("132-BL-E758", StringComparison.OrdinalIgnoreCase):
                 return Model.X58_3X_SLI;
+            case var _ when name.Equals("151-SS-E179", StringComparison.OrdinalIgnoreCase):
+                return Model.Z170_CLASSIFIED_4WAY;
             case var _ when name.Equals("965P-S3", StringComparison.OrdinalIgnoreCase):
                 return Model._965P_S3;
             case var _ when name.Equals("EP45-DS3R", StringComparison.OrdinalIgnoreCase):
@@ -420,11 +422,11 @@ internal class Identification
             case var _ when name.Equals("Z790 Taichi", StringComparison.OrdinalIgnoreCase):
             case var _ when name.Equals("Z790 Taichi Carrara", StringComparison.OrdinalIgnoreCase):
                 return Model.Z790_Taichi;
-            case var _ when name.Equals("B660M DS3H AX DDR4",StringComparison.OrdinalIgnoreCase):
+            case var _ when name.Equals("B660M DS3H AX DDR4", StringComparison.OrdinalIgnoreCase):
                 return Model.B660M_DS3H_AX_DDR4;
             case var _ when name.Equals("ROG STRIX Z790-I GAMING WIFI", StringComparison.OrdinalIgnoreCase):
                 return Model.ROG_STRIX_Z790_I_GAMING_WIFI;
-            case var _ when name.Equals("MPG X570 GAMING PLUS (MS-7C37)",StringComparison.OrdinalIgnoreCase):
+            case var _ when name.Equals("MPG X570 GAMING PLUS (MS-7C37)", StringComparison.OrdinalIgnoreCase):
                 return Model.X570_Gaming_Plus;
             case var _ when name.Equals("ROG MAXIMUS Z790 FORMULA", StringComparison.OrdinalIgnoreCase):
                 return Model.ROG_MAXIMUS_Z790_FORMULA;
